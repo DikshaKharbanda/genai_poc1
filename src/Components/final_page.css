@@ -1,0 +1,60 @@
+.body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    height:100vh;
+    width:100%;
+    background-image:url("image5.jpeg");
+  
+  }
+  
+  h1 {
+    text-align:left;
+    
+  }
+  
+  .details-table {
+    width: 40%;
+    margin: 20px 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 15px; /* Adjust the radius as needed */
+    overflow: hidden;
+  }
+  
+  .details-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .details-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  .details-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .details-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .details-table td:first-child {
+    font-weight: bold;
+  }
+  
+  /* Optional: Adding round corners to the first and last rows */
+  .details-table tr:first-child td:first-child {
+    border-top-left-radius: 15px;
+  }
+  
+  .details-table tr:first-child td:last-child {
+    border-top-right-radius: 15px;
+  }
+  
+  .details-table tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+  }
+  
+  .details-table tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+  }
+  
