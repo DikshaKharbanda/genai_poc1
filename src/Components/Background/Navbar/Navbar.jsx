@@ -2,11 +2,11 @@ import './Navbar.css'
 const Navbar = () => {
     return (
       <div className='nav'>
-        <img src='ey_logo.png' height={70} width={70}></img>
+        <div className='nav-logo'><img src='ey_logo.png' height={70} width={70} ></img></div>
         <ul className="nav-menu">
-            <li><div>Home</div></li>
-            <li><div>Contact</div></li>
-            <li><div>About</div></li>
+            <li><div className='test'>Home</div></li>
+            <a><li><div>Contact</div></li></a>
+            <a><li><div>About</div></li></a>
             <li className='nav-log_out'>Logout</li>
         </ul>
   

@@ -4,10 +4,12 @@
     align-items: center;
     color:white; 
     background-color: #2e2e38;
+    height: 100px;
 }
 
 .nav-logo{
     padding: 20px;
+    margin-left: 20px;
 }
 
 .nav-menu{
@@ -29,3 +31,7 @@
 .nav-menu li:hover{
 border-bottom: 3px solid yellow;
 }
+
+.test{
+    border-bottom: 3px solid yellow;
+    }
