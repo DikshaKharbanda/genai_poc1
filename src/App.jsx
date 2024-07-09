@@ -8,19 +8,22 @@ import Final_page from "./Components/final_page.jsx";
 import Login from "./Components/login.jsx";
 import Login_page from "./Components/Login_page.jsx";
 import Landing from "./Components/Landing.jsx";
+import { AppProvider } from "../login/login/AppContext.jsx";
 
 const App = () => {
 
   return (
     <>
+    <AppProvider>
     <Router>
       <Routes>
-      <Route path="/contact" element={<Final_page/>} />
+      <Route path="/final_page" element={<Final_page/>} />
       <Route path="/landing" element={<Landing/>} />
       <Route path="/" element={<Login_page/>} />
       {/* Add more routes as needed */}
     </Routes>
     </Router>
+    </AppProvider>
     <div>
   </div>
   </>

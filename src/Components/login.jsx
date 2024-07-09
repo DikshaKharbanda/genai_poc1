@@ -21,7 +21,7 @@ const Login = () => {
         }
 
         try {
-            const response = await fetch(endpoint, {
+            const response = await fetch(`http://localhost:8000${endpoint}`, { // Ensure the correct backend URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -7,7 +7,8 @@ const Navbar = () => {
             <li><div className='test'>Home</div></li>
             <a><li><div>Contact</div></li></a>
             <a><li><div>About</div></li></a>
-            <li className='nav-log_out'>Logout</li>
+            <a href= "/">
+            <li className='nav-log_out'>Logout</li></a>
         </ul>
   
       </div>

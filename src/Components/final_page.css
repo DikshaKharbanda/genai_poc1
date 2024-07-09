@@ -1,14 +1,15 @@
 .body {
     font-family: Arial, sans-serif;
-    padding: 20px;
     height:100vh;
     width:100%;
     background-color: gray;
+    margin: 0px;
   
   }
   
   h1 {
     text-align:left;
+    padding: 20px;
     
   }
   
@@ -82,4 +83,9 @@
   .content{
     padding: 25px;
     font-size: large;
+  }
+  .address-content {
+    font-size: 12px;
+    word-wrap: break-word;
+    white-space: pre-wrap; /* Ensures that the address breaks into multiple lines */
   }

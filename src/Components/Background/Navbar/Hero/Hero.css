@@ -19,12 +19,13 @@
     padding: 5px 8px;
     padding-left:30px;
     border-radius:60px;
-    background-color:white;
+    background-color:black;
     cursor:pointer;
+    color:white;
 }
 
 .hero-explore p{
-    color:#292929;
+    color:white;
     font-size:20px;
     font-weight:500;
 }

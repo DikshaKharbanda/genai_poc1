@@ -1,27 +1,41 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import "./Contact.css";
+import {useNavigate } from "react-router-dom";
+import { useAppContext } from "../../../login/login/AppContext";
 
 const Contact = () => {
   const form = useRef();
+  const { updateAadhaar, updatePan } = useAppContext();
+  const navigate = useNavigate();
 
-  const sendEmail = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const formData = new FormData(form.current);
+    const formData = new FormData();
+    formData.append('aadhaar_file', form.current.user_aadhaar.files[0]);
+    formData.append('pan_file', form.current.user_pan.files[0]);
 
     try {
-      const response = await fetch('/verify/', {
+      const response = await fetch('http://localhost:8000/verify/', {
         method: 'POST',
         body: formData,
       });
 
-      const data = await response.json();
       if (response.ok) {
+        const data = await response.json();
         alert('Verification successful');
         console.log(data);
+
+        // Update context state
+        updateAadhaar(data.aadhaar_result);
+        updatePan(data.pan_result);
+
+        // Redirect to FinalPage
+        navigate('/final_page');
       } else {
-        alert(data.detail);
+        const errorData = await response.json();
+        alert(errorData.detail);
       }
     } catch (error) {
       console.error('Error:', error);
@@ -32,7 +46,7 @@ const Contact = () => {
   return (
     <div className="form_area">
       <StyledContactForm>
-        <form ref={form} onSubmit={sendEmail} method="post">
+        <form ref={form} onSubmit={handleSubmit} method="post">
           <label>Name <div style={{ color: "red", display: "inline" }}>*</div></label>
           <input type="text" name="user_name" required />
           <label>Email<div style={{ color: "red", display: "inline" }}>*</div></label>
@@ -50,7 +64,6 @@ const Contact = () => {
 
 export default Contact;
 
-// Styles
 const StyledContactForm = styled.div`
   form {
     display: flex;
@@ -86,7 +99,8 @@ const StyledContactForm = styled.div`
       margin-top: 2rem;
       cursor: pointer;
       background: #ffe600;
-      color: white;
+      color: black;
+      font-weight:bold;
       border: none;
     }
   }
