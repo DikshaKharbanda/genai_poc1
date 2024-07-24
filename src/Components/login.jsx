@@ -31,7 +31,7 @@ const Login = () => {
 
             const data = await response.json()
             if (response.ok) {
-                alert(data.message)
+                localStorage.setItem('authToken', data.token);
                 window.location.href = data.redirect_url
             } else {
                 alert(data.detail)

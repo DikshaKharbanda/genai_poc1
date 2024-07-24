@@ -8,6 +8,8 @@
     font-size: 50px;
     font-weight: 500;
     line-height: 130px;
+    background-color:rgba(0, 0,0,0.7);
+    width: 65%;
 }
 
 .hero-explore{

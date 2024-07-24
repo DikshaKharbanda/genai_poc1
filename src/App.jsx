@@ -9,6 +9,8 @@ import Login from "./Components/login.jsx";
 import Login_page from "./Components/Login_page.jsx";
 import Landing from "./Components/Landing.jsx";
 import { AppProvider } from "../login/login/AppContext.jsx";
+import About from "./Components/About.jsx";
+import PrivateRoute from "./PrivateRoute.jsx";
 
 const App = () => {
 
@@ -17,8 +19,8 @@ const App = () => {
     <AppProvider>
     <Router>
       <Routes>
-      <Route path="/final_page" element={<Final_page/>} />
-      <Route path="/landing" element={<Landing/>} />
+      <Route path="/final_page" element={<PrivateRoute><Final_page/></PrivateRoute>} />
+      <Route path="/landing" element={<PrivateRoute><Landing/></PrivateRoute>} />
       <Route path="/" element={<Login_page/>} />
       {/* Add more routes as needed */}
     </Routes>

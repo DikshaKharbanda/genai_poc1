@@ -26,7 +26,7 @@ const Final_page = () => {
             <div className='circle left'><FontAwesomeIcon icon={faAddressBook} className='icon' size='2x'/></div>
             <div className='content left'>
               <b>Address</b><br/>
-              {aadhaar.address.split(" ").slice(0, 5).join(" ")}
+           <font size ="2" > {aadhaar.address.split(" ").slice(0, 6).join(" ")}</font>
             </div>
           </div>
           <div className="data left">

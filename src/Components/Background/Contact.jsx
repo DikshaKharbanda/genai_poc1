@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import "./Contact.css";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../../login/login/AppContext";
 
 const Contact = () => {
@@ -11,10 +11,12 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData();
     formData.append('aadhaar_file', form.current.user_aadhaar.files[0]);
     formData.append('pan_file', form.current.user_pan.files[0]);
+    formData.append('name', form.current.user_name.value);  // Updated to 'name'
+    formData.append('email', form.current.user_email.value);  // Updated to 'email'
 
     try {
       const response = await fetch('http://localhost:8000/verify/', {
@@ -49,12 +51,12 @@ const Contact = () => {
         <form ref={form} onSubmit={handleSubmit} method="post">
           <label>Name <div style={{ color: "red", display: "inline" }}>*</div></label>
           <input type="text" name="user_name" required />
-          <label>Email<div style={{ color: "red", display: "inline" }}>*</div></label>
+          <label>Email <div style={{ color: "red", display: "inline" }}>*</div></label>
           <input type="email" name="user_email" required />
-          <label>Aadhaar Card <div style={{ color: "red", display: "inline" }}>*</div></label>
-          <input type="file" name="user_aadhaar" required />
-          <label>PAN Card <div style={{ color: "red", display: "inline" }}>*</div></label>
-          <input type="file" name="user_pan" required />
+          <label>Aadhaar Card <div style={{ color: "red", display: "inline" }}>*</div><br/></label>
+          <input type="file" accept=".jpg,.jpeg,.png" name="user_aadhaar" required placeholder="supported formats .jpg,.jpeg,.png"/>
+          <label>PAN Card <div style={{ color: "red", display: "inline" }}>*</div> <br/></label>
+          <input type="file" accept=".jpg,.jpeg,.png" name="user_pan" required />
           <input type="submit" value="Verify" />
         </form>
       </StyledContactForm>

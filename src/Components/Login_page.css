@@ -64,10 +64,13 @@
   .text2{
     color: white;
     font-size: 5pc;
+    
   }
   .text3{
     font-size: xx-large;
     color:white;
     margin: 50px;
     font-weight: bold;
+    background-color: rgba(0, 0,0, 0.7);
+    width: 75%;
   }
