@@ -26,7 +26,9 @@ const Contact = () => {
 
       if (response.ok) {
         const data = await response.json();
-        alert('Verification successful');
+        if (data.message !== undefined) {
+          alert(data.message);
+      }
         console.log(data);
 
         // Update context state
@@ -34,7 +36,7 @@ const Contact = () => {
         updatePan(data.pan_result);
 
         // Redirect to FinalPage
-        navigate('/final_page');
+        navigate(data.redirect_url);
       } else {
         const errorData = await response.json();
         alert(errorData.detail);
